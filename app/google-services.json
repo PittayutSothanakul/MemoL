@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "677499063200",
+    "firebase_url": "https://memol-1110c.firebaseio.com",
+    "project_id": "memol-1110c",
+    "storage_bucket": "memol-1110c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:677499063200:android:1d683b1d62969e29",
+        "android_client_info": {
+          "package_name": "com.example.memol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "677499063200-b72g3umipe1oa9sp4hhq7oc7u4ekneld.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.memol",
+            "certificate_hash": "f99b432ea62f96e7997e7cd428b7268da9d873d9"
+          }
+        },
+        {
+          "client_id": "677499063200-jfnt72qohof5jkv7h0h4vaicnqbiq0mb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2p1UTJjP6baG5Wi6SLjBiHEtkxGYFvjw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "677499063200-jfnt72qohof5jkv7h0h4vaicnqbiq0mb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
