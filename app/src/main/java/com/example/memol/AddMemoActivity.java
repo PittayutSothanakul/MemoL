@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -28,12 +27,16 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.firebase.client.Firebase;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class AddMemoActivity extends AppCompatActivity {
 
     private ImageView imageView;
     private Button selectButton , enterButton;
-    private TextView nameText , timeText , locationText , descriptionText;
+    private TextView nameText , dateText,timeText , locationText , descriptionText;
     private FirebaseAuth mAuth;
     private Firebase mRootRef;
     private ProgressDialog mProgressDialog;
@@ -49,11 +52,23 @@ public class AddMemoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_addmemo);
 
         Firebase.setAndroidContext(this);
-
+        //create a date string.
+        String date_n = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault()).format(new Date());
+        Calendar c = Calendar.getInstance(); // Get current time
+        int hr1 = c.get(Calendar.HOUR_OF_DAY);
+        int sec1 =c.get(Calendar.SECOND);
+        int min1 =c.get(Calendar.MINUTE);
         selectButton = (Button) findViewById(R.id.selectButton);
         enterButton = (Button) findViewById(R.id.enterButton);
         nameText = (TextView) findViewById(R.id.nameText);
+        dateText = (TextView) findViewById(R.id.dateText);
+        timeText = (TextView) findViewById(R.id.timeText);
+        locationText= (TextView) findViewById(R.id.locationText);
+        descriptionText = (TextView) findViewById(R.id.descriptionText);
         imageView = (ImageView) findViewById(R.id.imageView);
+
+        dateText.setText(date_n);
+        timeText.setText(hr1 +":" +min1 + ":" + sec1);
 
         mProgressDialog = new ProgressDialog(AddMemoActivity.this);
 
