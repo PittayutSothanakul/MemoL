@@ -160,7 +160,7 @@ public class AddMemoActivity extends AppCompatActivity {
 
         // initialize firebase
         mdatabaseRef = FirebaseDatabase.getInstance().getReference();
-        mRootRef = new Firebase("https://memol-1110c.firebaseio.com/").child("User_Details").push();
+        mRootRef = new Firebase("https://memol-1110c.firebaseio.com/").child("User_Memo").push();
         mStorage = FirebaseStorage.getInstance().getReferenceFromUrl("gs://memol-1110c.appspot.com");
 
         enterButton.setOnClickListener(new View.OnClickListener() {
@@ -177,11 +177,11 @@ public class AddMemoActivity extends AppCompatActivity {
                     return;
                 }
 
-                Firebase childRef_name = mRootRef.child("Image_Title");
-                Firebase chileRef_date = mRootRef.child("Date");
-                Firebase chileRef_time = mRootRef.child("Time");
-                Firebase chileRef_location = mRootRef.child("Location");
-                Firebase chileRef_description = mRootRef.child("Description");
+                Firebase childRef_name = mRootRef.child("Memo_Name");
+                Firebase chileRef_date = mRootRef.child("Memo_Date");
+                Firebase chileRef_time = mRootRef.child("Memo_Time");
+                Firebase chileRef_location = mRootRef.child("Memo_Location");
+                Firebase chileRef_description = mRootRef.child("Memo_Description");
 
                 childRef_name.setValue(mName);
                 chileRef_date.setValue(mDate);
@@ -225,7 +225,7 @@ public class AddMemoActivity extends AppCompatActivity {
         if(requestCode == GALLERY_INTENT && resultCode == RESULT_OK) {
             imagesUri = data.getData();
             imageView.setImageURI(imagesUri);
-            StorageReference filePath = mStorage.child("User_Images").child(imagesUri.getLastPathSegment());
+            StorageReference filePath = mStorage.child("Memo_Images").child(imagesUri.getLastPathSegment());
 
             mProgressDialog.setMessage("Uploading...");
             mProgressDialog.show();

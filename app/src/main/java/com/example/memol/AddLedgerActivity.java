@@ -47,7 +47,7 @@ public class AddLedgerActivity extends AppCompatActivity {
     private ImageView imageView;
     private Button selectButton , enterButton ;
     private ImageButton dateButton , timeButton;
-    private TextView nameText , dateText,timeText , locationText , descriptionText;
+    private TextView nameText , dateText,timeText , locationText,priceText , descriptionText;
     private FirebaseAuth mAuth;
     private Firebase mRootRef;
     private ProgressDialog mProgressDialog;
@@ -78,6 +78,7 @@ public class AddLedgerActivity extends AppCompatActivity {
         nameText = (TextView) findViewById(R.id.nameText);
         dateText = (TextView) findViewById(R.id.dateText);
         timeText = (TextView) findViewById(R.id.timeText);
+        priceText = (TextView) findViewById(R.id.priceText);
         locationText= (TextView) findViewById(R.id.locationText);
         descriptionText = (TextView) findViewById(R.id.descriptionText);
         imageView = (ImageView) findViewById(R.id.imageView);
@@ -160,7 +161,7 @@ public class AddLedgerActivity extends AppCompatActivity {
 
         // initialize firebase
         mdatabaseRef = FirebaseDatabase.getInstance().getReference();
-        mRootRef = new Firebase("https://memol-1110c.firebaseio.com/").child("User_Details").push();
+        mRootRef = new Firebase("https://memol-1110c.firebaseio.com/").child("User_Ledger").push();
         mStorage = FirebaseStorage.getInstance().getReferenceFromUrl("gs://memol-1110c.appspot.com");
 
         enterButton.setOnClickListener(new View.OnClickListener() {
@@ -171,23 +172,26 @@ public class AddLedgerActivity extends AppCompatActivity {
                 final String mTime = timeText.getText().toString().trim();
                 final String mLocation = locationText.getText().toString().trim();
                 final String mDescription = descriptionText.getText().toString().trim();
+                final String mPrice = priceText.getText().toString().trim();
 
                 if(mName.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please enter title", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                Firebase childRef_name = mRootRef.child("Image_Title");
-                Firebase chileRef_date = mRootRef.child("Date");
-                Firebase chileRef_time = mRootRef.child("Time");
-                Firebase chileRef_location = mRootRef.child("Location");
-                Firebase chileRef_description = mRootRef.child("Description");
+                Firebase childRef_name = mRootRef.child("Ledger_Name");
+                Firebase chileRef_date = mRootRef.child("Ledger_Date");
+                Firebase chileRef_time = mRootRef.child("Ledger_Time");
+                Firebase chileRef_location = mRootRef.child("Ledger_Location");
+                Firebase chileRef_description = mRootRef.child("Ledger_Description");
+                Firebase chileRef_price = mRootRef.child("Ledger_Price");
 
                 childRef_name.setValue(mName);
                 chileRef_date.setValue(mDate);
                 chileRef_time.setValue(mTime);
                 chileRef_location.setValue(mLocation);
                 chileRef_description.setValue(mDescription);
+                chileRef_price.setValue(mPrice);
 
 
 
@@ -225,7 +229,7 @@ public class AddLedgerActivity extends AppCompatActivity {
         if(requestCode == GALLERY_INTENT && resultCode == RESULT_OK) {
             imagesUri = data.getData();
             imageView.setImageURI(imagesUri);
-            StorageReference filePath = mStorage.child("User_Images").child(imagesUri.getLastPathSegment());
+            StorageReference filePath = mStorage.child("Ledger_Images").child(imagesUri.getLastPathSegment());
 
             mProgressDialog.setMessage("Uploading...");
             mProgressDialog.show();
