@@ -6,15 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
+    <ImageButton
         android:id="@+id/addLedger"
-        android:layout_width="66dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="108dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="116dp"
         android:onClick="onClickedaddLedger"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_Ledger" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_Ledger"
+        app:srcCompat="@android:drawable/ic_menu_add" />
 
     <Button
         android:id="@+id/bt_logout"
@@ -23,10 +24,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="412dp"
         android:onClick="onLogoutButtonClicked"
         android:text="Logout"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addMemo" />
@@ -67,16 +66,19 @@
         android:text="Ledger"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/txt_Memo"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/addMemo"
-        android:layout_width="66dp"
-        android:layout_height="61dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginStart="116dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="36dp"
         android:onClick="onClickedaddMemo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_Memo" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_Memo"
+        app:srcCompat="@android:drawable/ic_menu_add" />
+
 </android.support.constraint.ConstraintLayout>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -13,7 +14,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private TextView name_account;
-    private Button addMemo , addLedger;
+    private ImageButton addMemo , addLedger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

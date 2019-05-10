@@ -167,12 +167,30 @@ public class AddMemoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String mName = nameText.getText().toString().trim();
+                final String mDate = dateText.getText().toString().trim();
+                final String mTime = timeText.getText().toString().trim();
+                final String mLocation = locationText.getText().toString().trim();
+                final String mDescription = descriptionText.getText().toString().trim();
+
                 if(mName.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please enter title", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 Firebase childRef_name = mRootRef.child("Image_Title");
+                Firebase chileRef_date = mRootRef.child("Date");
+                Firebase chileRef_time = mRootRef.child("Time");
+                Firebase chileRef_location = mRootRef.child("Location");
+                Firebase chileRef_description = mRootRef.child("Description");
+
                 childRef_name.setValue(mName);
+                chileRef_date.setValue(mDate);
+                chileRef_time.setValue(mTime);
+                chileRef_location.setValue(mLocation);
+                chileRef_description.setValue(mDescription);
+
+
+
                 Toast.makeText(getApplicationContext(), "Update Info", Toast.LENGTH_SHORT).show();
 
                 Intent i = new Intent(AddMemoActivity.this, HomeActivity.class);
