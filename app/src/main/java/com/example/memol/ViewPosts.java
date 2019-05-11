@@ -83,9 +83,7 @@ public class ViewPosts extends AppCompatActivity {
 //                });
             }
         };
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
-                mFirebaseAdapter;
-        recyclerView.addItemDecoration(dividerItemDecoration);
+
 
         recyclerView.setAdapter(mFirebaseAdapter);
     }

@@ -64,7 +64,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void onClickToMemo(View view){
-        Intent i = new Intent(HomeActivity.this, ViewPosts.class);
+        Intent i = new Intent(HomeActivity.this, MemoActivity.class);
         finish();
         startActivity(i);
     }
