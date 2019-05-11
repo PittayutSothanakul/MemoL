@@ -28,6 +28,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.firebase.client.DataSnapshot;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -160,12 +161,13 @@ public class AddMemoActivity extends AppCompatActivity {
 
         // initialize firebase
         mdatabaseRef = FirebaseDatabase.getInstance().getReference();
-        mRootRef = new Firebase("https://memol-1110c.firebaseio.com/").child("User_Memo").push();
+        mRootRef = new Firebase("https://memol-1110c.firebaseio.com/").child("User_Memo");
         mStorage = FirebaseStorage.getInstance().getReferenceFromUrl("gs://memol-1110c.appspot.com");
 
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                int number_ofMemo = 1;
                 final String mName = nameText.getText().toString().trim();
                 final String mDate = dateText.getText().toString().trim();
                 final String mTime = timeText.getText().toString().trim();
@@ -176,15 +178,31 @@ public class AddMemoActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please enter title", Toast.LENGTH_SHORT).show();
                     return;
                 }
+                Firebase RefDate = mRootRef.child("Memo_Date"+"_"+mDate);
+                RefDate.push();
 
-                Firebase childRef_name = mRootRef.child("Memo_Name");
-                Firebase chileRef_date = mRootRef.child("Memo_Date");
-                Firebase chileRef_time = mRootRef.child("Memo_Time");
-                Firebase chileRef_location = mRootRef.child("Memo_Location");
-                Firebase chileRef_description = mRootRef.child("Memo_Description");
+//                Firebase chileRef_no = RefDate.child(String.valueOf(number_ofMemo));
+                Firebase chileRef_no = RefDate.push();
 
-                childRef_name.setValue(mName);
+
+//                if(chileRef_no.equals(RefDate.child(String.valueOf(1)))){
+//                    number_ofMemo++;
+//                    chileRef_no = RefDate.child(String.valueOf(number_ofMemo));
+//                }
+
+
+                Firebase chileRef_date = chileRef_no;
+                Firebase childRef_name = chileRef_no.child("Memo_Name");
+                Firebase chileRef_time = chileRef_no.child("Memo_Time");
+                Firebase chileRef_location = chileRef_no.child("Memo_Location");
+//                Firebase chileRef_description = chileRef_no.child("Memo_Description");
+                Firebase chileRef_description = chileRef_no.child("Memo_Description");
+
+
+
+//                chileRef_no.setValue(number_ofMemo);
                 chileRef_date.setValue(mDate);
+                childRef_name.setValue(mName);
                 chileRef_time.setValue(mTime);
                 chileRef_location.setValue(mLocation);
                 chileRef_description.setValue(mDescription);
