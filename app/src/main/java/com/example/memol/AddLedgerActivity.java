@@ -18,10 +18,13 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -42,11 +45,11 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
-public class AddLedgerActivity extends AppCompatActivity {
+public class AddLedgerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private ImageView imageView;
     private Button selectButton, enterButton ;
-    private ImageButton dateButton, timeButton ,priceButton;
+    private ImageButton dateButton, timeButton ;
     private TextView nameText, dateText, timeText, locationText, priceText, descriptionText;
     private FirebaseAuth mAuth;
     private Firebase mRootRef;
@@ -56,7 +59,8 @@ public class AddLedgerActivity extends AppCompatActivity {
     private Uri imagesUri = null;
     private DatabaseReference mdatabaseRef;
     private StorageReference mStorage;
-    public  static TextView addLedger , lastestUpdateText, currencyText;
+    public  static TextView addLedger , lastestUpdateText;
+    public  static  Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,9 +79,11 @@ public class AddLedgerActivity extends AppCompatActivity {
         fetchCurrency process = new fetchCurrency();
         process.execute();
 
+
+
+
         selectButton = (Button) findViewById(R.id.selectButton);
         enterButton = (Button) findViewById(R.id.enterButton);
-        priceButton = (ImageButton) findViewById(R.id.priceButton);
         timeButton = (ImageButton) findViewById(R.id.timeButton);
         dateButton = (ImageButton) findViewById(R.id.dateButton);
         nameText = (TextView) findViewById(R.id.nameText);
@@ -87,10 +93,18 @@ public class AddLedgerActivity extends AppCompatActivity {
         locationText = (TextView) findViewById(R.id.locationText);
         descriptionText = (TextView) findViewById(R.id.descriptionText);
         imageView = (ImageView) findViewById(R.id.imageView);
+        spinner = (Spinner) findViewById(R.id.spinner);
 
         addLedger = (TextView) findViewById(R.id.addLedger);
         lastestUpdateText = (TextView) findViewById(R.id.lastestupdateText);
-        currencyText = (TextView) findViewById(R.id.currencyText);
+
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.currency_arrays, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
 
         dateText.setText(date_n);
         String am_pm;
@@ -199,8 +213,11 @@ public class AddLedgerActivity extends AppCompatActivity {
                 chileRef_time.setValue(mTime);
                 chileRef_location.setValue(mLocation);
                 chileRef_description.setValue(mDescription);
-                chileRef_price.setValue(mPrice);
 
+               ;
+
+
+                chileRef_price.setValue(mPrice +" "+ spinner.getSelectedItem().toString());
 
                 Toast.makeText(getApplicationContext(), "Update Info", Toast.LENGTH_SHORT).show();
 
@@ -210,13 +227,6 @@ public class AddLedgerActivity extends AppCompatActivity {
             }
         });
 
-
-        priceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
 
     }
@@ -286,5 +296,14 @@ public class AddLedgerActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
+        String text = parent.getItemAtPosition((position)).toString();
+        Toast.makeText(parent.getContext(),text ,Toast.LENGTH_SHORT).show();
+    }
 
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.memol;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -13,12 +14,19 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Iterator;
+import java.util.Map;
 
 public class fetchCurrency extends AsyncTask<Void,Void,Void> {
     String data ="";
     String dataParsed = "";
     String singleParsed ="";
     String date = "";
+    String rate = "";
+
+    int size = 0;
+    String []arraycurrency = new String[size];
+
     @Override
     protected Void doInBackground(Void... voids) {
         try {
@@ -35,20 +43,18 @@ public class fetchCurrency extends AsyncTask<Void,Void,Void> {
             }
 
             JSONObject jo = new JSONObject(data);
+//            JSONObject jc = jo.getJSONObject("rate");
+
+//            Iterator<String> iterator = jc.keys();
+//            while (iterator.hasNext()) {
+//                String key = iterator.next();
+//                Log.i("TAG","key:"+key +"--Value::"+jc.optString(key));
+//            }
+
             date = (String) jo.get("date");
 
-//            JSONArray JA = new JSONArray(data);
-//            for(int i =0 ;i <JA.length(); i++){
-//                JSONObject JO = (JSONObject) JA.get(i);
-//                singleParsed =  "Name:" + JO.get("name") + "\n"+
-//                        "Password:" + JO.get("password") + "\n"+
-//                        "Contact:" + JO.get("contact") + "\n"+
-//                        "Country:" + JO.get("country") + "\n";
-//
-//                dataParsed = dataParsed + singleParsed +"\n" ;
-//
-//
-//            }
+//            rate = (String) jo.get("rate");
+
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -66,6 +72,7 @@ public class fetchCurrency extends AsyncTask<Void,Void,Void> {
         super.onPostExecute(aVoid);
 
         AddLedgerActivity.lastestUpdateText.setText("latest update " + this.date);
+//        AddLedgerActivity.spinner.setOnItemSelectedListener(this.arraycurrency);
 
     }
 }
