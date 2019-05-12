@@ -45,13 +45,13 @@ import java.util.Locale;
 public class AddLedgerActivity extends AppCompatActivity {
 
     private ImageView imageView;
-    private Button selectButton , enterButton ;
-    private ImageButton dateButton , timeButton;
-    private TextView nameText , dateText,timeText , locationText,priceText , descriptionText;
+    private Button selectButton, enterButton;
+    private ImageButton dateButton, timeButton;
+    private TextView nameText, dateText, timeText, locationText, priceText, descriptionText;
     private FirebaseAuth mAuth;
     private Firebase mRootRef;
     private ProgressDialog mProgressDialog;
-    private static  final int GALLERY_INTENT =2;
+    private static final int GALLERY_INTENT = 2;
     public static final int READ_EXTERNAL_STORAGE = 0;
     private Uri imagesUri = null;
     private DatabaseReference mdatabaseRef;
@@ -79,16 +79,16 @@ public class AddLedgerActivity extends AppCompatActivity {
         dateText = (TextView) findViewById(R.id.dateText);
         timeText = (TextView) findViewById(R.id.timeText);
         priceText = (TextView) findViewById(R.id.priceText);
-        locationText= (TextView) findViewById(R.id.locationText);
+        locationText = (TextView) findViewById(R.id.locationText);
         descriptionText = (TextView) findViewById(R.id.descriptionText);
         imageView = (ImageView) findViewById(R.id.imageView);
 
         dateText.setText(date_n);
         String am_pm;
-        if(hour<12){
+        if (hour < 12) {
             am_pm = "AM";
 
-        }else{
+        } else {
             am_pm = "PM";
         }
         timeText.setText(hour + ":" + min + " " + am_pm);
@@ -96,7 +96,7 @@ public class AddLedgerActivity extends AppCompatActivity {
         mProgressDialog = new ProgressDialog(AddLedgerActivity.this);
 
 
-        dateButton.setOnClickListener(new View.OnClickListener(){
+        dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Calendar c = Calendar.getInstance(); // Get current time
@@ -109,14 +109,14 @@ public class AddLedgerActivity extends AppCompatActivity {
                 dpd = new DatePickerDialog(AddLedgerActivity.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                        dateText.setText(day + "-" + (month+1) + "-" + year);
+                        dateText.setText(day + "-" + (month + 1) + "-" + year);
                     }
                 }, day, month, year);
                 dpd.show();
             }
         });
 
-        timeButton.setOnClickListener(new View.OnClickListener(){
+        timeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Calendar c = Calendar.getInstance(); // Get current time
@@ -129,15 +129,15 @@ public class AddLedgerActivity extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hour, int min) {
                         String am_pm;
-                        if(hour<12){
+                        if (hour < 12) {
                             am_pm = "AM";
 
-                        }else{
+                        } else {
                             am_pm = "PM";
                         }
                         timeText.setText(hour + ":" + min + " " + am_pm);
                     }
-                },hour,min,false);
+                }, hour, min, false);
                 tpd.show();
             }
         });
@@ -146,13 +146,12 @@ public class AddLedgerActivity extends AppCompatActivity {
         selectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_DENIED) {
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_DENIED) {
                     Toast.makeText(getApplicationContext(), "Call for permission", Toast.LENGTH_SHORT).show();
-                    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                         requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, READ_EXTERNAL_STORAGE);
                     }
-                }
-                else {
+                } else {
                     callGalley();
                 }
             }
@@ -174,7 +173,7 @@ public class AddLedgerActivity extends AppCompatActivity {
                 final String mDescription = descriptionText.getText().toString().trim();
                 final String mPrice = priceText.getText().toString().trim();
 
-                if(mName.isEmpty()) {
+                if (mName.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please enter title", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -194,7 +193,6 @@ public class AddLedgerActivity extends AppCompatActivity {
                 chileRef_price.setValue(mPrice);
 
 
-
                 Toast.makeText(getApplicationContext(), "Update Info", Toast.LENGTH_SHORT).show();
 
                 Intent i = new Intent(AddLedgerActivity.this, HomeActivity.class);
@@ -209,7 +207,7 @@ public class AddLedgerActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
             case READ_EXTERNAL_STORAGE:
-                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                     callGalley();
                 break;
         }
@@ -226,7 +224,7 @@ public class AddLedgerActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == GALLERY_INTENT && resultCode == RESULT_OK) {
+        if (requestCode == GALLERY_INTENT && resultCode == RESULT_OK) {
             imagesUri = data.getData();
             imageView.setImageURI(imagesUri);
             StorageReference filePath = mStorage.child("Ledger_Images").child(imagesUri.getLastPathSegment());
@@ -258,5 +256,11 @@ public class AddLedgerActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    public void onClickToHome(View view) {
+        Intent i = new Intent(AddLedgerActivity.this, HomeActivity.class);
+        finish();
+        startActivity(i);
     }
 }

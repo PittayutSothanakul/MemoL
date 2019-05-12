@@ -139,5 +139,10 @@ public class ViewPosts extends AppCompatActivity {
         finish();
         startActivity(i);
     }
+    public void onClickToHome(View view) {
+        Intent i = new Intent(ViewPosts.this, HomeActivity.class);
+        finish();
+        startActivity(i);
+    }
 }
 

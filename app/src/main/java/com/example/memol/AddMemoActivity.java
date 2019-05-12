@@ -163,6 +163,7 @@ public class AddMemoActivity extends AppCompatActivity {
         mRootRef = new Firebase("https://memol-1110c.firebaseio.com/").child("User_Memo").push();
         mStorage = FirebaseStorage.getInstance().getReferenceFromUrl("gs://memol-1110c.appspot.com");
 
+
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -253,6 +254,14 @@ public class AddMemoActivity extends AppCompatActivity {
 
                 }
             });
+
         }
+
+
+    }
+    public void onClickToHome(View view) {
+        Intent i = new Intent(AddMemoActivity.this, HomeActivity.class);
+        finish();
+        startActivity(i);
     }
 }

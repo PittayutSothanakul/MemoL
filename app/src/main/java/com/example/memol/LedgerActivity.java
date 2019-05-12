@@ -117,7 +117,11 @@ public class LedgerActivity extends AppCompatActivity {
         finish();
         startActivity(i);
     }
-
+    public void onClickToHome(View view) {
+        Intent i = new Intent(LedgerActivity.this, HomeActivity.class);
+        finish();
+        startActivity(i);
+    }
 
 }
 

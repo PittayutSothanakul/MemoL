@@ -14,7 +14,6 @@
         android:layout_marginEnd="60dp"
         android:background="#2B311D"
         android:backgroundTint="#363F4A"
-        android:textColor="#2196F3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/txt_Memo2" />
 
@@ -23,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="75dp"
         android:text="Ledger"
         android:textColor="#FFC107"
@@ -39,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="32dp"
         android:onClick="onClickToMemo"
         android:text="Memo"
         android:textAlignment="center"
@@ -58,5 +57,18 @@
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_Memo2" />
+
+    <ImageButton
+        android:id="@+id/homeButton"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="44dp"
+        android:background="@null"
+        android:onClick="onClickToHome"
+        android:scaleType="centerInside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/home" />
 
 </android.support.constraint.ConstraintLayout>
