@@ -1,6 +1,7 @@
 package com.example.memol;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -36,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         id = (TextView) findViewById(R.id.userName);
         password = (TextView) findViewById(R.id.re_password);
         signin = (Button) findViewById(R.id.loginButton);
+        txt_register = (TextView) findViewById(R.id.txt_register);
+
+        txt_register.setPaintFlags(txt_register.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         // check if user is logged in
         if(mAuth.getCurrentUser() != null) {

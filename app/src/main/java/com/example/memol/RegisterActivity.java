@@ -1,6 +1,7 @@
 package com.example.memol;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -17,9 +18,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
+import org.w3c.dom.Text;
+
 public class RegisterActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    private TextView re_userName, re_password;
+    private TextView re_userName, re_password , txt_toLogin;
     private Button bt_register;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,9 @@ public class RegisterActivity extends AppCompatActivity {
         re_userName = (TextView) findViewById(R.id.re_userName);
         re_password = (TextView) findViewById(R.id.re_password);
         bt_register = (Button) findViewById(R.id.bt_register);
+        txt_toLogin = (TextView) findViewById(R.id.txt_toLogin);
+
+        txt_toLogin.setPaintFlags(txt_toLogin.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
 
         bt_register.setOnClickListener(new View.OnClickListener() {
