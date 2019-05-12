@@ -45,8 +45,8 @@ import java.util.Locale;
 public class AddLedgerActivity extends AppCompatActivity {
 
     private ImageView imageView;
-    private Button selectButton, enterButton;
-    private ImageButton dateButton, timeButton;
+    private Button selectButton, enterButton ;
+    private ImageButton dateButton, timeButton ,priceButton;
     private TextView nameText, dateText, timeText, locationText, priceText, descriptionText;
     private FirebaseAuth mAuth;
     private Firebase mRootRef;
@@ -56,6 +56,7 @@ public class AddLedgerActivity extends AppCompatActivity {
     private Uri imagesUri = null;
     private DatabaseReference mdatabaseRef;
     private StorageReference mStorage;
+    public  static TextView addLedger , lastestUpdateText, currencyText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,8 +72,12 @@ public class AddLedgerActivity extends AppCompatActivity {
         int min = c1.get(Calendar.MINUTE);
         int sec = c1.get(Calendar.SECOND);
 
+        fetchCurrency process = new fetchCurrency();
+        process.execute();
+
         selectButton = (Button) findViewById(R.id.selectButton);
         enterButton = (Button) findViewById(R.id.enterButton);
+        priceButton = (ImageButton) findViewById(R.id.priceButton);
         timeButton = (ImageButton) findViewById(R.id.timeButton);
         dateButton = (ImageButton) findViewById(R.id.dateButton);
         nameText = (TextView) findViewById(R.id.nameText);
@@ -82,6 +87,10 @@ public class AddLedgerActivity extends AppCompatActivity {
         locationText = (TextView) findViewById(R.id.locationText);
         descriptionText = (TextView) findViewById(R.id.descriptionText);
         imageView = (ImageView) findViewById(R.id.imageView);
+
+        addLedger = (TextView) findViewById(R.id.addLedger);
+        lastestUpdateText = (TextView) findViewById(R.id.lastestupdateText);
+        currencyText = (TextView) findViewById(R.id.currencyText);
 
         dateText.setText(date_n);
         String am_pm;
@@ -200,6 +209,16 @@ public class AddLedgerActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+        priceButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
     }
 
     @Override
@@ -258,9 +277,14 @@ public class AddLedgerActivity extends AppCompatActivity {
         }
     }
 
+
+
     public void onClickToHome(View view) {
         Intent i = new Intent(AddLedgerActivity.this, HomeActivity.class);
         finish();
         startActivity(i);
     }
+
+
+
 }
