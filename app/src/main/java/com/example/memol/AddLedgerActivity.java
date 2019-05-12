@@ -75,6 +75,7 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
         int hour = c1.get(Calendar.HOUR);
         int min = c1.get(Calendar.MINUTE);
         int sec = c1.get(Calendar.SECOND);
+        int am_pm = c1.get(Calendar.AM_PM);
 
         fetchCurrency process = new fetchCurrency();
         process.execute();
@@ -107,14 +108,22 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
         spinner.setOnItemSelectedListener(this);
 
         dateText.setText(date_n);
-        String am_pm;
-        if (hour < 12) {
-            am_pm = "AM";
 
+        String ampm = "ampm";
+        if (am_pm == 0) {
+            ampm = "AM";
         } else {
-            am_pm = "PM";
+            ampm = "PM";
         }
-        timeText.setText(hour + ":" + min + " " + am_pm);
+
+//        String am_pm;
+//        if (hour < 12) {
+//            am_pm = "AM";
+//
+//        } else {
+//            am_pm = "PM";
+//        }
+        timeText.setText(hour + ":" + min + " " + ampm);
 
         mProgressDialog = new ProgressDialog(AddLedgerActivity.this);
 
