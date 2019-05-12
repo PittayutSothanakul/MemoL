@@ -1,6 +1,7 @@
 package com.example.memol;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -132,5 +133,11 @@ public class ViewPosts extends AppCompatActivity {
         }
     }
 
+
+    public void onClickToLedger(View view){
+        Intent i = new Intent(ViewPosts.this, LedgerActivity.class);
+        finish();
+        startActivity(i);
+    }
 }
 

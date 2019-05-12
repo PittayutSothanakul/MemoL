@@ -12,6 +12,7 @@
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".AddLedgerActivity" />
         <activity android:name=".ViewPosts" />
+        <activity android:name=".LedgerActivity" />
         <activity android:name=".MemoActivity" />
         <activity android:name=".CalendarActivity" />
         <activity android:name=".AddMemoActivity" />

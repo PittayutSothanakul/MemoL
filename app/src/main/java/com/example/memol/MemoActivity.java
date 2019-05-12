@@ -44,39 +44,8 @@ public class MemoActivity extends AppCompatActivity {
             @Override
             protected void populateViewHolder(final MemoActivity.ShowDataViewHolder viewHolder, ViewSingleDate model, final int position) {
                 viewHolder.Image_URL(model.getImage_url());
-//                viewHolder.Name_Text(model.getMemo_Name());
                 viewHolder.Date_Text(model.getMemo_Date());
-//                viewHolder.Time_text(model.getMemo_Time());
-//                viewHolder.Location_text(model.getMemo_Location());
-//                viewHolder.Description_text(model.getMemo_Description());
 
-
-//                viewHolder.itemView.setOnClickListener(new View.OnClickListener(){
-//                    @Override
-//                    public void onClick(View v) {
-//                        AlertDialog.Builder builder = new AlertDialog.Builder(MemoActivity.this);
-//                        builder.setMessage("Delete?").setCancelable(false)
-//                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(DialogInterface dialog, int which) {
-//                                        int selectedItems = position;
-//                                        mFirebaseAdapter.getRef(selectedItems).removeValue();
-//                                        mFirebaseAdapter.notifyItemRemoved(selectedItems);
-//                                        recyclerView.invalidate();
-//                                        onStart();
-//                                    }
-//                                })
-//                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(DialogInterface dialog, int which) {
-//                                        dialog.cancel();
-//                                    }
-//                                });
-//                        AlertDialog dialog = builder.create();
-//                        dialog.setTitle("Are you sure?");
-//                        dialog.show();
-//                    }
-//                });
             }
         };
 
@@ -92,30 +61,16 @@ public class MemoActivity extends AppCompatActivity {
         public ShowDataViewHolder(final View itemView) {
             super(itemView);
             image_url = (ImageView) itemView.findViewById(R.id.dateImage);
-//            name_text = (TextView) itemView.findViewById(R.id.nameText);
             date_text = (TextView) itemView.findViewById(R.id.dateMemo);
-//            time_text = (TextView) itemView.findViewById(R.id.timeText);
-//            location_text = (TextView) itemView.findViewById(R.id.locationText);
-//            description_text = (TextView) itemView.findViewById(R.id.descriptionText);
 
 
         }
 
-//        private void Name_Text(String name) {
-//            name_text.setText(name);
-//        }
+
         private void Date_Text(String date) {
             date_text.setText(date);
         }
-//        private void Time_text(String time) {
-//            time_text.setText(time);
-//        }
-//        private void Location_text(String location) {
-//            location_text.setText(location);
-//        }
-//        private void Description_text(String description) {
-//            description_text.setText(description);
-//        }
+
 
         private void Image_URL(String title) {
             Glide.with(itemView.getContext())
@@ -129,4 +84,3 @@ public class MemoActivity extends AppCompatActivity {
     }
 
 }
-

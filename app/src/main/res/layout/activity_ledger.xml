@@ -8,14 +8,14 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="114dp"
+        android:layout_width="126dp"
         android:layout_height="43dp"
-        android:layout_marginStart="60dp"
 
+        android:layout_marginEnd="60dp"
         android:background="#2B311D"
         android:backgroundTint="#363F4A"
         android:textColor="#2196F3"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/txt_Memo2" />
 
     <TextView
@@ -25,7 +25,6 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="72dp"
         android:layout_marginEnd="75dp"
-        android:onClick="onClickToLedger"
         android:text="Ledger"
         android:textColor="#FFC107"
         android:textSize="30dp"
@@ -41,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
         android:layout_marginTop="72dp"
+        android:onClick="onClickToMemo"
         android:text="Memo"
         android:textAlignment="center"
         android:textColor="#FF9800"

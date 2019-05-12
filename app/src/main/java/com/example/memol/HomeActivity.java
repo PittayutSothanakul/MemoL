@@ -33,7 +33,6 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         mAuth = FirebaseAuth.getInstance();
-        situationText = (TextView) findViewById(R.id.situationText);
         name_account = (TextView) findViewById(R.id.name_account);
         calendarView = (CalendarView) findViewById(R.id.calendarView);
 
@@ -64,10 +63,15 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void onClickToMemo(View view){
-        Intent i = new Intent(HomeActivity.this, MemoActivity.class);
+        Intent i = new Intent(HomeActivity.this, ViewPosts.class);
         finish();
         startActivity(i);
     }
 
+    public void onClickToLedger(View view){
+        Intent i = new Intent(HomeActivity.this, LedgerActivity.class);
+        finish();
+        startActivity(i);
+    }
 
 }
