@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="420dp"
-    android:layout_height="190dp">
+    android:layout_height="185dp">
 
 
     <ImageView
@@ -11,7 +11,7 @@
         android:layout_width="176dp"
         android:layout_height="122dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/common_full_open_on_phone" />
@@ -20,7 +20,7 @@
         android:id="@+id/nameText"
         android:layout_width="160dp"
         android:layout_height="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="24dp"
         android:text="name"
         android:textSize="17dp"
@@ -75,7 +75,7 @@
         android:id="@+id/imageView2"
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="4dp"
         app:layout_constraintEnd_toStartOf="@+id/nameText"
         app:layout_constraintTop_toTopOf="parent"

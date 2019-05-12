@@ -44,7 +44,7 @@ public class LedgerActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         myRef = FirebaseDatabase.getInstance().getReference().child("User_Ledger");
 
-        totalpriceText = (TextView) findViewById(R.id.totalpriceText);
+        totalpriceText = (TextView) findViewById(R.id.totalPriceText);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
 
         myRef.addValueEventListener(new ValueEventListener() {
