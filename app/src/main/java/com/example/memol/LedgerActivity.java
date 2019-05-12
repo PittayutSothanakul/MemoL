@@ -50,14 +50,26 @@ public class LedgerActivity extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                int sum =0;
+                double sum =0;
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     Map<String,Object> map = (Map<String,Object>) ds.getValue();
                     Object price = map.get("Ledger_Price");
-                    int pValue = Integer.parseInt(String.valueOf(price));
+                    Object currency = map.get("Ledger_Currency");
+                    double pValue = Double.parseDouble(String.valueOf(price));
+                    String pCurrency = String.valueOf(currency);
 
-                    sum+=pValue;
-                    totalpriceText.setText("Total Price = "+ String.valueOf(sum));
+                    if(!pCurrency.equals("THB")){
+                        if (pCurrency.equals("JPY")){
+                            sum+=pValue *35.464 / 123.25;
+                        }else if(pCurrency.equals("EUR")){
+                            sum+=pValue *1 / 35.464;
+                        }
+
+                    }else {
+                        sum+=pValue;
+                    }
+                    double twodecimal = Math.round(sum * 100.0) / 100.0;
+                    totalpriceText.setText("Total Price = "+ String.valueOf(twodecimal) + " THB");
                 }
             }
 

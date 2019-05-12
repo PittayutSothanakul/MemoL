@@ -216,7 +216,7 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
                 chileRef_location.setValue(mLocation);
                 chileRef_description.setValue(mDescription);
 
-               ;
+                ;
 
 
                 chileRef_price.setValue(mPrice);
