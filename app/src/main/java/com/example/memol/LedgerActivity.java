@@ -27,6 +27,7 @@ public class LedgerActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference myRef;
+    private TextView totalPriceText;
     private FirebaseRecyclerAdapter<ViewSingleLedger, ShowDataViewHolder> mFirebaseAdapter;
 
     @Override

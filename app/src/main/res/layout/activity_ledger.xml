@@ -50,8 +50,8 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="417dp"
-        android:layout_height="621dp"
+        android:layout_width="433dp"
+        android:layout_height="319dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:padding="10dp"
@@ -70,5 +70,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/home" />
+
+    <TextView
+        android:id="@+id/totalpriceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="8dp"
+        android:text="Total Price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
 </android.support.constraint.ConstraintLayout>

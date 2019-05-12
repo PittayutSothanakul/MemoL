@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -86,8 +85,8 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="150dp"
-        android:layout_height="35dp"
+        android:layout_width="158dp"
+        android:layout_height="42dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
@@ -130,8 +129,9 @@
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:background="#FFF"
         android:ems="10"
-        android:hint="place name"
+        android:hint=" name"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
@@ -144,8 +144,9 @@
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
+        android:background="#FFF"
         android:ems="10"
-        android:hint="location"
+        android:hint=" location"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
@@ -159,8 +160,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
+        android:background="#FFF"
         android:ems="10"
-        android:hint="detail"
+        android:hint=" detail"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
@@ -182,16 +184,16 @@
 
     <Button
         android:id="@+id/enterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="109dp"
+        android:layout_height="42dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="8dp"
-        android:text="add Memo"
+        android:text="add Ledger"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.865"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/descriptionText" />
 
     <TextView
         android:id="@+id/dateText"
@@ -199,6 +201,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="12dp"
+        android:background="#FFF"
         android:text="Date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -208,7 +211,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="120dp"
+        android:layout_marginEnd="100dp"
+        android:background="#FFF"
         android:text="Time"
         app:layout_constraintEnd_toStartOf="@+id/timeButton"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -238,8 +242,9 @@
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_marginStart="28dp"
+        android:background="#FFF"
         android:ems="10"
-        android:hint="Price"
+        android:hint=" price"
         android:inputType="number|textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView18" />
