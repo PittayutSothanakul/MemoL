@@ -178,4 +178,3 @@ public class LedgerActivity extends AppCompatActivity {
     }
 
 }
-

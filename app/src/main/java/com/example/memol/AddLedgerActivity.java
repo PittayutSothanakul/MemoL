@@ -207,6 +207,8 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
                 Firebase chileRef_location = mRootRef.child("Ledger_Location");
                 Firebase chileRef_description = mRootRef.child("Ledger_Description");
                 Firebase chileRef_price = mRootRef.child("Ledger_Price");
+                Firebase chileRef_currency = mRootRef.child("Ledger_Currency");
+
 
                 childRef_name.setValue(mName);
                 chileRef_date.setValue(mDate);
@@ -217,7 +219,8 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
                ;
 
 
-                chileRef_price.setValue(mPrice +" "+ spinner.getSelectedItem().toString());
+                chileRef_price.setValue(mPrice);
+                chileRef_currency.setValue(spinner.getSelectedItem().toString());
 
                 Toast.makeText(getApplicationContext(), "Update Info", Toast.LENGTH_SHORT).show();
 
