@@ -83,7 +83,8 @@ public class LedgerActivity extends AppCompatActivity {
                 viewHolder.Time_text(model.getLedger_Time());
                 viewHolder.Location_text(model.getLedger_Location());
                 viewHolder.Description_text(model.getLedger_Description());
-                viewHolder.Price_text(model.getLedger_Price());
+                viewHolder.Price_text(model.getLedger_Price() +" "+ model.getLedger_Currency());
+
 
                 viewHolder.itemView.setOnClickListener(new View.OnClickListener(){
                     @Override
