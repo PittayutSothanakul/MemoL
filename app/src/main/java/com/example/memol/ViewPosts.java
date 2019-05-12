@@ -56,32 +56,32 @@ public class ViewPosts extends AppCompatActivity {
                 viewHolder.Description_text(model.getMemo_Description());
 
 
-//                viewHolder.itemView.setOnClickListener(new View.OnClickListener(){
-//                    @Override
-//                    public void onClick(View v) {
-//                        AlertDialog.Builder builder = new AlertDialog.Builder(ViewPosts.this);
-//                        builder.setMessage("Delete?").setCancelable(false)
-//                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(DialogInterface dialog, int which) {
-//                                        int selectedItems = position;
-//                                        mFirebaseAdapter.getRef(selectedItems).removeValue();
-//                                        mFirebaseAdapter.notifyItemRemoved(selectedItems);
-//                                        recyclerView.invalidate();
-//                                        onStart();
-//                                    }
-//                                })
-//                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
-//                                    @Override
-//                                    public void onClick(DialogInterface dialog, int which) {
-//                                        dialog.cancel();
-//                                    }
-//                                });
-//                        AlertDialog dialog = builder.create();
-//                        dialog.setTitle("Are you sure?");
-//                        dialog.show();
-//                    }
-//                });
+                viewHolder.itemView.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(ViewPosts.this);
+                        builder.setMessage("Delete?").setCancelable(false)
+                                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        int selectedItems = position;
+                                        mFirebaseAdapter.getRef(selectedItems).removeValue();
+                                        mFirebaseAdapter.notifyItemRemoved(selectedItems);
+                                        recyclerView.invalidate();
+                                        onStart();
+                                    }
+                                })
+                                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.cancel();
+                                    }
+                                });
+                        AlertDialog dialog = builder.create();
+                        dialog.setTitle("Are you sure?");
+                        dialog.show();
+                    }
+                });
             }
         };
 
