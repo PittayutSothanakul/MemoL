@@ -70,6 +70,8 @@ public class AddMemoActivity extends AppCompatActivity {
         int hour = c1.get(Calendar.HOUR);
         int min = c1.get(Calendar.MINUTE);
         int sec = c1.get(Calendar.SECOND);
+        int am_pm = c1.get(Calendar.AM_PM);
+
 
         selectButton = (Button) findViewById(R.id.selectButton);
         enterButton = (Button) findViewById(R.id.enterButton);
@@ -83,14 +85,13 @@ public class AddMemoActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.imageView);
 
         dateText.setText(date_n);
-        String am_pm;
-        if(hour<12){
-            am_pm = "AM";
-
-        }else{
-            am_pm = "PM";
+        String ampm = "ampm";
+        if (am_pm == 0) {
+            ampm = "AM";
+        } else {
+            ampm = "PM";
         }
-        timeText.setText(hour + ":" + min + " " + am_pm);
+        timeText.setText(hour + ":" + min + " " + ampm);
 
         mProgressDialog = new ProgressDialog(AddMemoActivity.this);
 
