@@ -61,9 +61,101 @@ public class LedgerActivity extends AppCompatActivity {
                     if(!pCurrency.equals("THB")){
                         if (pCurrency.equals("JPY")){
                             sum+=pValue *35.464 / 123.25;
-                        }else if(pCurrency.equals("EUR")){
-                            sum+=pValue *1 / 35.464;
                         }
+                        if(pCurrency.equals("EUR")){
+                            sum+=pValue * 35.464;
+                        }
+                        if(pCurrency.equals("AUD")){
+                            sum+=pValue * 35.464 / 1.6059;
+                        }
+                        if(pCurrency.equals("BGN")){
+                            sum+=pValue * 35.464 / 1.9558;
+                        }
+                        if(pCurrency.equals("BRL")){
+                            sum+=pValue * 35.464 / 4.4405;
+                        }
+                        if(pCurrency.equals("CAD")){
+                            sum+=pValue * 35.464 / 1.5132;
+                        }
+                        if(pCurrency.equals("CHF")){
+                            sum+=pValue * 35.464 / 1.1378;
+                        }
+                        if(pCurrency.equals("CNY")){
+                            sum+=pValue * 35.464 / 7.6628;
+                        }
+                        if(pCurrency.equals("CZK")){
+                            sum+=pValue * 35.464 / 25.732;
+                        }
+                        if(pCurrency.equals("DKK")){
+                            sum+=pValue * 35.464 / 7.4658;
+                        }
+                        if(pCurrency.equals("GBP")){
+                            sum+=pValue * 35.464 / 0.8625;
+                        }
+                        if(pCurrency.equals("HKD")){
+                            sum+=pValue * 35.464 / 8.8135;
+                        }
+                        if(pCurrency.equals("HRK")){
+                            sum+=pValue * 35.464 / 7.409;
+                        }
+                        if(pCurrency.equals("HUF")){
+                            sum+=pValue * 35.464 / 323.52;
+                        }
+                        if(pCurrency.equals("IDR")){
+                            sum+=pValue * 35.464 / 16177.38;
+                        }
+                        if(pCurrency.equals("ILS")){
+                            sum+=pValue * 35.464 / 4.0004;
+                        }
+                        if(pCurrency.equals("INR")){
+                            sum+=pValue * 35.464 / 78.6075;
+                        }
+                        if(pCurrency.equals("ISK")){
+                            sum+=pValue * 35.464 / 137;
+                        }
+                        if(pCurrency.equals("KRW")){
+                            sum+=pValue * 35.464 / 1325.32;
+                        }
+                        if(pCurrency.equals("MXN")){
+                            sum+=pValue * 35.464 / 21.5589;
+                        }
+                        if(pCurrency.equals("MYR")){
+                            sum+=pValue * 35.464 / 4.6781;
+                        }
+                        if(pCurrency.equals("NOK")){
+                            sum+=pValue * 35.464 / 9.8193;
+                        }
+                        if(pCurrency.equals("NZD")){
+                            sum+=pValue * 35.464 / 1.7025;
+                        }
+                        if(pCurrency.equals("PHP")){
+                            sum+=pValue * 35.464 / 58.722;
+                        }
+                        if(pCurrency.equals("PLN")){
+                            sum+=pValue * 35.464 / 4.296;
+                        }
+                        if(pCurrency.equals("RON")){
+                            sum+=pValue * 35.464 / 4.7598;
+                        }
+                        if(pCurrency.equals("RUB")){
+                            sum+=pValue * 35.464 / 73.3493;
+                        }
+                        if(pCurrency.equals("SEK")){
+                            sum+=pValue * 35.464 / 10.8108;
+                        }
+                        if(pCurrency.equals("SGD")){
+                            sum+=pValue * 35.464 / 1.5305;
+                        }
+                        if(pCurrency.equals("TRY")){
+                            sum+=pValue * 35.464 / 6.8837;
+                        }
+                        if(pCurrency.equals("USD")){
+                            sum+=pValue * 35.464 / 1.123;
+                        }
+                        if(pCurrency.equals("ZAR")){
+                            sum+=pValue * 35.464 / 15.9762;
+                        }
+
 
                     }else {
                         sum+=pValue;
