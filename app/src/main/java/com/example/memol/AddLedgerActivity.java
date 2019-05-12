@@ -48,9 +48,9 @@ import java.util.Locale;
 public class AddLedgerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private ImageView imageView;
-    private Button selectButton, enterButton ;
-    private ImageButton dateButton, timeButton ;
-    private TextView nameText, dateText, timeText, locationText, priceText, descriptionText;
+    private Button selectButton, enterButton;
+    private ImageButton dateButton, timeButton;
+    private TextView nameText, dateText, timeText, locationText, descriptionText, priceText;
     private FirebaseAuth mAuth;
     private Firebase mRootRef;
     private ProgressDialog mProgressDialog;
@@ -59,8 +59,9 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
     private Uri imagesUri = null;
     private DatabaseReference mdatabaseRef;
     private StorageReference mStorage;
-    public  static TextView addLedger , lastestUpdateText;
-    public  static  Spinner spinner;
+
+    public static TextView addLedger, lastestUpdateText;
+    public static Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,9 +81,6 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
         fetchCurrency process = new fetchCurrency();
         process.execute();
 
-
-
-
         selectButton = (Button) findViewById(R.id.selectButton);
         enterButton = (Button) findViewById(R.id.enterButton);
         timeButton = (ImageButton) findViewById(R.id.timeButton);
@@ -90,39 +88,30 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
         nameText = (TextView) findViewById(R.id.nameText);
         dateText = (TextView) findViewById(R.id.dateText);
         timeText = (TextView) findViewById(R.id.timeText);
-        priceText = (TextView) findViewById(R.id.priceText);
         locationText = (TextView) findViewById(R.id.locationText);
         descriptionText = (TextView) findViewById(R.id.descriptionText);
         imageView = (ImageView) findViewById(R.id.imageView);
-        spinner = (Spinner) findViewById(R.id.spinner);
 
+
+        priceText = (TextView) findViewById(R.id.priceText);
+        locationText = (TextView) findViewById(R.id.locationText);
+
+        spinner = (Spinner) findViewById(R.id.spinner);
         addLedger = (TextView) findViewById(R.id.addLedger);
         lastestUpdateText = (TextView) findViewById(R.id.lastestupdateText);
-
-
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.currency_arrays, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
         dateText.setText(date_n);
-
         String ampm = "ampm";
         if (am_pm == 0) {
             ampm = "AM";
         } else {
             ampm = "PM";
         }
-
-//        String am_pm;
-//        if (hour < 12) {
-//            am_pm = "AM";
-//
-//        } else {
-//            am_pm = "PM";
-//        }
         timeText.setText(hour + ":" + min + " " + ampm);
 
         mProgressDialog = new ProgressDialog(AddLedgerActivity.this);
@@ -195,6 +184,7 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
         mRootRef = new Firebase("https://memol-1110c.firebaseio.com/").child("User_Ledger").push();
         mStorage = FirebaseStorage.getInstance().getReferenceFromUrl("gs://memol-1110c.appspot.com");
 
+
         enterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -208,6 +198,9 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
                 if (mName.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please enter title", Toast.LENGTH_SHORT).show();
                     return;
+                } else  if (mPrice.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "Please enter Price", Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
                 Firebase childRef_name = mRootRef.child("Ledger_Name");
@@ -218,15 +211,11 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
                 Firebase chileRef_price = mRootRef.child("Ledger_Price");
                 Firebase chileRef_currency = mRootRef.child("Ledger_Currency");
 
-
                 childRef_name.setValue(mName);
                 chileRef_date.setValue(mDate);
                 chileRef_time.setValue(mTime);
                 chileRef_location.setValue(mLocation);
                 chileRef_description.setValue(mDescription);
-
-                ;
-
 
                 chileRef_price.setValue(mPrice);
                 chileRef_currency.setValue(spinner.getSelectedItem().toString());
@@ -238,9 +227,6 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
                 startActivity(i);
             }
         });
-
-
-
     }
 
     @Override
@@ -296,10 +282,11 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
 
                 }
             });
+
         }
+
+
     }
-
-
 
     public void onClickToHome(View view) {
         Intent i = new Intent(AddLedgerActivity.this, HomeActivity.class);
@@ -307,15 +294,13 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
         startActivity(i);
     }
 
-
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
         String text = parent.getItemAtPosition((position)).toString();
-        Toast.makeText(parent.getContext(),text ,Toast.LENGTH_SHORT).show();
+        Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 }
