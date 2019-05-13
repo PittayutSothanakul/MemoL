@@ -70,7 +70,6 @@ public class fetchCurrency extends AsyncTask<Void,Void,Void> {
     @Override
     protected void onPostExecute(Void aVoid) {
         super.onPostExecute(aVoid);
-
         AddLedgerActivity.lastestUpdateText.setText("latest update " + this.date);
 //        AddLedgerActivity.spinner.setOnItemSelectedListener(this.arraycurrency);
 

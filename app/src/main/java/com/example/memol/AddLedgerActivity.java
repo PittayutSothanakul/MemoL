@@ -63,6 +63,8 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
     public static TextView addLedger, lastestUpdateText;
     public static Spinner spinner;
 
+    fetchCurrency process = new fetchCurrency();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,7 +80,6 @@ public class AddLedgerActivity extends AppCompatActivity implements AdapterView.
         int sec = c1.get(Calendar.SECOND);
         int am_pm = c1.get(Calendar.AM_PM);
 
-        fetchCurrency process = new fetchCurrency();
         process.execute();
 
         selectButton = (Button) findViewById(R.id.selectButton);
