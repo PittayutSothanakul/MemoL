@@ -5,20 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/bgText"
-        android:layout_width="420dp"
-        android:layout_height="80dp"
-        android:background="#B2FFEB3B"
+    <ImageView
+        android:id="@+id/bgImage2"
+        android:layout_width="902dp"
+        android:layout_height="100dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/yellowbg" />
+
+    <TextView
+        android:id="@+id/bgText2"
+        android:layout_width="420dp"
+        android:layout_height="100dp"
+        android:background="#81FFEB3B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bgImage2" />
 
     <TextView
         android:id="@+id/bgButton"
-        android:layout_width="114dp"
+        android:layout_width="120dp"
         android:layout_height="43dp"
-        android:layout_marginStart="60dp"
+
+        android:layout_marginEnd="62dp"
+        android:background="#BE1D2631"
+        android:backgroundTint="#29303A"
+        android:textColor="#2196F3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_Ledger2" />
+
+    <TextView
+        android:id="@+id/bgButton3"
+        android:layout_width="107dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="65dp"
 
         android:background="#2B311D"
         android:backgroundTint="#363F4A"
@@ -63,14 +87,14 @@
         android:layout_height="621dp"
         android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bgText" />
+        app:layout_constraintTop_toBottomOf="@+id/bgText2" />
 
     <ImageButton
         android:id="@+id/homeButton"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:background="@null"
         android:onClick="onClickToHome"
         android:scaleType="centerInside"
